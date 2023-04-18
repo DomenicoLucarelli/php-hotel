@@ -40,6 +40,10 @@
 
     ];
 
+    
+    
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -53,62 +57,77 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-    <!-- <?php 
+
+
     
-    foreach($hotels as  $hotel){
-        foreach ($hotel as $key => $element) {
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Parking</th>
+                <th scope="col">Vote</th>
+                <th scope="col">Distance to center</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <?php 
             
-            echo "{$key}: {$element} <br>";
-        };
-
-        echo '<br>';
-    };
-    
-    ?> -->
-
-<table class="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Parking</th>
-      <th scope="col">Vote</th>
-      <th scope="col">Distance to center</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <?php 
-    
-    foreach($hotels as  $hotel){
-    
-    ?>
-        
-        <tr>
-           <?php
-           
-           foreach ($hotel as $key => $element) {
+            foreach($hotels as  $hotel){
             
             ?>
-            
-            <td> <?php echo $element ?> </td>
+                
+                <tr>
 
-        <?php
+                <?php
+                
+                foreach ($hotel as $key => $element) {
+                    
+                ?>
+                    
+                    <td> 
 
-        };
+                        <?php
+                        // controllo per cambiare il valore 1 o '' della chiave parking in yes o no
+                            if($key == 'parking'){
+                                if($element == true){
+                                    echo 'yes';
+                                }else{
+                                    echo 'no';
+                                }
+                            }else{
 
-        ?>
+                                echo $element;
+                            }
+                        
+                        ?> 
+                     
+                    </td>
 
-        </tr>
+                <?php
 
-    <?php
+                };
 
-    };
+                ?>
 
-    ?>
-  </tbody>
-</table>
+                </tr>
+
+            <?php
+
+            };
+
+            ?>
+        </tbody>
+
+    </table>
+
+    
 
 
 
