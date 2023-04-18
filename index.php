@@ -40,6 +40,9 @@
 
     ];
 
+    
+
+   
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +65,7 @@
 
         <label for="select">Filtro parcheggio</label>
         <select  name="parking" id="select">
-            <option selected>Open this select menu</option>
+            <option selected></option>
             <option value="1" >Parking</option>
             <option value="2" >No Parking</option>
             <option value="3">Both</option>     
@@ -70,7 +73,7 @@
 
         <label for="vote-select">Filtro voto</label>
         <select  name="vote" id="vote-select">
-            <option selected>Open this select menu</option>
+            <option selected></option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3">3</option>  
@@ -86,7 +89,9 @@
 
     $choice1 = $_GET['parking'];
     
-    $choice2 = $_GET['vote'];
+    $choice2 = $_GET['vote'] ?? '';
+
+    var_dump($choice1)
 
     ?>
 
@@ -115,24 +120,132 @@
                 <tr class=" 
                 <?php 
 
-                    if($choice1 == 1){
+                    if($choice1 == '1' && $choice2 == '' ){
 
-                        if($hotel['parking'] == false){
-
-                            echo 'visual';
-
-                        };
-                    }elseif($choice1 == 2){
-
-                        if($hotel['parking'] == true){
+                        if($hotel['parking'] == false ){
 
                             echo 'visual';
 
                         };
-                    };
+
+                        
+                    }elseif ($choice1 == 1 && $choice2 == '1') {
+                        if($hotel['parking'] == false || $hotel['vote'] < 1 ){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 1 && $choice2 == '2') {
+                        if($hotel['parking'] == false || $hotel['vote'] < 2 ){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 1 && $choice2 == '3') {
+                        if($hotel['parking'] == false || $hotel['vote'] < 3 ){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 1 && $choice2 == '4') {
+                        if($hotel['parking'] == false || $hotel['vote'] < 4 ){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 1 && $choice2 == '5') {
+                        if($hotel['parking'] == false || $hotel['vote'] < 5 ){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 2 && $choice2 == '') {
+                        if($hotel['parking'] == true ){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 2 && $choice2 == '1') {
+                        if($hotel['parking'] == true || $hotel['vote'] <1){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 2 && $choice2 == '2') {
+                        if($hotel['parking'] == true || $hotel['vote'] <2){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 2 && $choice2 == '3') {
+                        if($hotel['parking'] == true || $hotel['vote'] <3){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 2 && $choice2 == '4') {
+                        if($hotel['parking'] == true || $hotel['vote'] <4){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == 2 && $choice2 == '5') {
+                        if($hotel['parking'] == true || $hotel['vote'] <5){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == '' && $choice2 == '1') {
+                        if( $hotel['vote'] <1){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == '' && $choice2 == '2') {
+                        if( $hotel['vote'] <2){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == '' && $choice2 == '3') {
+                        if( $hotel['vote'] <3){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == '' && $choice2 == '4') {
+                        if( $hotel['vote'] <4){
+
+                            echo 'visual';
+
+                        };
+
+                    }elseif ($choice1 == '' && $choice2 == '5') {
+                        if( $hotel['vote'] <5){
+
+                            echo 'visual';
+
+                        };
+
+                    }
 
                     
-                
+
+                    
                 ?>" 
 
                 >
