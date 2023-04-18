@@ -40,10 +40,6 @@
 
     ];
 
-    
-    
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -54,12 +50,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="style.css">
+    
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
 
+    <form action="index.php" method="get">
 
+        <label for="select">Filtro parcheggio</label>
+        <select  name="parking" id="select">
+            <option selected>Open this select menu</option>
+            <option value="1" >Parking</option>
+            <option value="2" >No Parking</option>
+            <option value="3">Both</option>     
+        </select>
+
+        <label for="vote-select">Filtro voto</label>
+        <select  name="vote" id="vote-select">
+            <option selected>Open this select menu</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3">3</option>  
+            <option value="4">4</option>
+            <option value="5">5</option>    
+        </select>
+
+        <input type="submit">
+
+    </form>
     
+    <?php  
+
+    $choice1 = $_GET['parking'];
+    
+    $choice2 = $_GET['vote'];
+
+    ?>
 
     <table class="table">
 
@@ -83,38 +112,61 @@
             
             ?>
                 
-                <tr>
+                <tr class=" 
+                <?php 
 
-                <?php
+                    if($choice1 == 1){
+
+                        if($hotel['parking'] == false){
+
+                            echo 'visual';
+
+                        };
+                    }elseif($choice1 == 2){
+
+                        if($hotel['parking'] == true){
+
+                            echo 'visual';
+
+                        };
+                    };
+
+                    
                 
-                foreach ($hotel as $key => $element) {
-                    
-                ?>
-                    
-                    <td> 
+                ?>" 
 
-                        <?php
-                        // controllo per cambiare il valore 1 o '' della chiave parking in yes o no
-                            if($key == 'parking'){
-                                if($element == true){
-                                    echo 'yes';
-                                }else{
-                                    echo 'no';
-                                }
-                            }else{
+                >
 
-                                echo $element;
-                            }
+                    <?php
+                    
+                    foreach ($hotel as $key => $element) {
                         
-                        ?> 
-                     
-                    </td>
+                    ?>
+                        
+                        <td> 
 
-                <?php
+                            <?php
+                                if($key == 'parking'){
+                                    // controllo per cambiare il valore 1 o '' della chiave parking in yes o no
+                                    if($element == true){
+                                        echo 'yes';
+                                    }else{
+                                        echo 'no';
+                                    }
+                                }else{
 
-                };
+                                    echo $element;
+                                }
+                            
+                            ?> 
+                        
+                        </td>
 
-                ?>
+                    <?php
+
+                    };
+
+                    ?>
 
                 </tr>
 
