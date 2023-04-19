@@ -87,7 +87,7 @@
     
     <?php  
 
-    $choice1 = $_GET['parking'];
+    $choice1 = $_GET['parking'] ?? '';
     
     $choice2 = $_GET['vote'] ?? '';
 
